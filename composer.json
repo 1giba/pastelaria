@@ -13,5 +13,8 @@
         "psr-4": {
             "TrayLabs\\Pastelaria\\": "app/"
         }
+    },
+    "require-dev": {
+        "phpunit/phpunit": "5.5.*"
     }
 }
