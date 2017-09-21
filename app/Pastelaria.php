@@ -2,7 +2,8 @@
 
 namespace TrayLabs\Pastelaria;
 
-use TrayLabs\Pastelaria\Entities\Pastel;
+use TrayLabs\Pastelaria\Models\Pastel;
+use TrayLabs\Pastelaria\TemplateEngines\View;
 
 class Pastelaria
 {
@@ -13,25 +14,12 @@ class Pastelaria
      */
     public function iniciarAplicacao()
     {
-        $dados = [
-            [
-                'nome'    => 'Pastel de Flango',
-                'recheio' => 'flango',
-                'valor'   => 4.50,
-            ],
-            [
-                'nome'    => 'Pastel de Quezo',
-                'recheio' => 'quezo',
-                'valor'   => 4.90,
-            ],
-        ];
+        $model   = new Pastel;
 
-        $pasteis = [];
+        $pasteis = $model->allPasteis();
 
-        foreach ($dados as $dado) {
-            $pasteis[] = new Pastel($dado['nome'], $dado['recheio'], $dado['valor']);
-        }
-
-        include __DIR__ . '/../views/pasteis/index.php';
+        echo View::getTwig()->render('pasteis/index.html', [
+            'pasteis' => $pasteis,
+        ]);
     }
 }

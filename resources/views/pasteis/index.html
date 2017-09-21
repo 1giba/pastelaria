@@ -1,0 +1,19 @@
+<h1>Pastéis</h1>
+<table border="1">
+    <theader>
+        <tr>
+            <th>Nome</th>
+            <th>Recheio</th>
+            <th>Valor</th>
+        </tr>
+    </theader>
+    <tbody>
+        {% for pastel in pasteis %}
+        <tr>
+            <td>{{ pastel.getNome() }}</td>
+            <td>{{ pastel.getRecheio() }}</td>
+            <td>{{ pastel.getValor() }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
